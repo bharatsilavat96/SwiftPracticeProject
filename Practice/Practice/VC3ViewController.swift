@@ -1,29 +1,24 @@
 //
-//  NextViewController.swift
+//  VC3ViewController.swift
 //  Practice
 //
-//  Created by Bharat Silavat on 08/12/22.
+//  Created by Bharat Silavat on 09/12/22.
 //
 
 import UIKit
 
-class NextViewController: UIViewController {
+class VC3ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = .cyan
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func moveToNext(){
-        
-        
-        let SecondVC = self.storyboard?.instantiateViewController(withIdentifier: "vc3") as! VC3ViewController
-        present(SecondVC, animated: true)
-        
-        
+    @IBAction func cancel(_ sender: Any) {
+        dismiss(animated: true)
     }
+    
     /*
     // MARK: - Navigation
 
