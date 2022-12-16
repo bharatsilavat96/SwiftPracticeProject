@@ -26,7 +26,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func numberOfSections(in tableView: UITableView) -> Int {
 //
 //        return strDict.keys.count
-        return dataDict.keys.count + 1
+        return strDict.keys.count + 1
     }
     
     
@@ -34,8 +34,10 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         let value = dataDict[section] ?? 0
         
-        
-        return String(value )
+//        let key = Array(strDict.keys)[section]
+
+        return value
+//        return String(value )
     }
 //
 //    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -99,10 +101,18 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     
     
+//           for (key, value) in strDict {
+//
+//               keys.append(key)
+//               keyCount.append(value.count)
+//           }
+//           return keyCount[section]
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCustomCell")
-       
+        
         cell!.textLabel!.text = "My Section: \(indexPath.section), and Row : \(indexPath.row)"
         cell!.detailTextLabel?.text = "My detail textLable:\(indexPath)"
         return cell!
