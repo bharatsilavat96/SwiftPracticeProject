@@ -7,21 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
- 
-
-    var myDictArrey :[[[String:String]]] = [[["A":"Swapnil"],["B":"Sagar"],["C":"Suraj"],["D":"Shubham"]],[["E":"Akash"],["F":"Amit"],["G":"Amol"],["H":"Sameer"]]]
-    
-    @IBOutlet weak var myTableView:UITableView!
-  
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    
-        
-    
-    }
-    
-
+extension ViewController:  UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
       
         return myDictArrey.count
@@ -63,6 +49,67 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
 //        cell.detailTextLabel?.text = "\(value1)"
         return cell
     }
+    
+}
+
+class ViewController: UIViewController, UITableViewDelegate {
+ 
+
+    lazy var myDictArrey :[[[String:String]]] = {
+        return [[["A":"Swapnil"],["B":"Sagar"],["C":"Suraj"],["D":"Shubham"]],[["E":"Akash"],["F":"Amit"],["G":"Amol"],["H":"Sameer"]]]
+    }()
+    
+    
+    @IBOutlet weak var myTableView:UITableView!
+  
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        
+    }
+    
+    lazy var table: UITableView = {
+        let view = UITableView(frame: .zero, style: .plain)
+        return view
+    }()
+    
+    var fName: String = ""
+    var lName: String = ""
+    
+    var fullName: String {
+        set {
+            let str = newValue
+            let strArray = str.split(separator: " ")
+            if strArray.count > 0 {
+                self.fName = String(strArray[0])
+            }
+            if strArray.count > 1 {
+                self.lName = String(strArray[1])
+            }
+        }
+        
+        get {
+            return "\(fName) \(lName)"
+        }
+    }
+    
+
+    
+
     
     
 

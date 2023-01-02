@@ -14,9 +14,11 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var secondLbl:UILabel!
     @IBOutlet weak var thirdLbl:UILabel!
     @IBOutlet weak var fourthLbl:UILabel!
+    @IBOutlet weak var button: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.button.cornerRadius = 5.0
         // Initialization code
     }
 
